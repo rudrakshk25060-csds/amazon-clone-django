@@ -1,6 +1,6 @@
 # class Bird:
 #     def __init__(self, name, age, color):
-            # This variable is called Public
+#             This variable is called Public
 #         self.name = name 
 #         self.age = age
 #         self.color = color
