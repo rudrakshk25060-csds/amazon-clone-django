@@ -36,18 +36,18 @@
 
 #Private method
 
-class Balance:
-    def __init__(self, balance, name, pin):
-        self.__account_balance = balance
-        self.name = name
-        self.pin = pin
+# class Balance:
+#     def __init__(self, balance, name, pin):
+#         self.__account_balance = balance
+#         self.name = name
+#         self.pin = pin
 
-    def show_Balance(self):
-        if(self.pin==321):
-            return f"Your Account balance is {self.__account_balance}"
-        else:
-            return "Your pin is not correct"
+#     def show_Balance(self):
+#         if(self.pin==321):
+#             return f"Your Account balance is {self.__account_balance}"
+#         else:
+#             return "Your pin is not correct"
         
 
-b1 = Balance(50000, "Xyz", 123)
-print(b1.show_Balance())
+# b1 = Balance(50000, "Xyz", 123)
+# print(b1.show_Balance())

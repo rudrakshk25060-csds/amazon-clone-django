@@ -22,33 +22,33 @@
 
 # Multiple Inheritance
 
-class A:
-    def __init__(self, name):
-        self.name = name
+# class A:
+#     def __init__(self, name):
+#         self.name = name
 
-    def sing(self):
-        return f"{self.name} can sing"
+#     def sing(self):
+#         return f"{self.name} can sing"
 
-    def dance(self):
-        return f"{self.name} can Dance"
+#     def dance(self):
+#         return f"{self.name} can Dance"
 
-    def cook(self):
-        return f"{self.name} can Cook"
+#     def cook(self):
+#         return f"{self.name} can Cook"
 
-class B:
-    def drive(self):
-        return "B can drive"
+# class B:
+#     def drive(self):
+#         return "B can drive"
 
-    def write(self):
-        return "B can write"
+#     def write(self):
+#         return "B can write"
 
-    def listen(self):
-        return "B can listen"
+#     def listen(self):
+#         return "B can listen"
 
-class C(A,B):
-    def play():
-        return "C can play"
+# class C(A,B):
+#     def play():
+#         return "C can play"
 
-c1 = C("C");
-print(c1.dance())
-print(c1.write())
+# c1 = C("C");
+# print(c1.dance())
+# print(c1.write())
