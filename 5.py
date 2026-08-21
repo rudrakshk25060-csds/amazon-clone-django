@@ -21,20 +21,21 @@
 # print(s1.sing())
 
 
-class A:
-    def show(self):
-        print("I am showing A")
+# MRO -> Method Resolution Order
+# class A:
+#     def show(self):
+#         print("I am showing A")
 
-class B(A):
-    def show(self):
-        print("I am showing A")
+# class B(A):
+#     def show(self):
+#         print("I am showing A")
 
-class C(B, A):
-    def show(self):
-        print("I am showing A")
+# class C(B, A):
+#     def show(self):
+#         print("I am showing A")
 
-c = C()
-c.show()
+# c = C()
+# c.show()
 # print(C.__mro__)
 # print(C.mro())
 
