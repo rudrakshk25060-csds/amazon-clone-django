@@ -20,5 +20,3 @@ class Child(Parent):
 c1 = Child("Mohit", 180, 85, "brown")
 print(c1.name)
 print(c1.sing())
-
-# Multi level inheritance (chain Inheritance–)

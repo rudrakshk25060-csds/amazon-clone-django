@@ -13,7 +13,6 @@
 # # print(b1.wings_color)
 # # print(b1.fly())
 
-
 # class Bird:
 #     def __init__(self, name, color, wings_color):
 #         self.name = name 
