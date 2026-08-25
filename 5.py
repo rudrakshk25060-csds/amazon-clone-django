@@ -36,7 +36,3 @@
 
 # c = C()
 # c.show()
-# print(C.__mro__)
-# print(C.mro())
-
-# Hybrid Inheritance
