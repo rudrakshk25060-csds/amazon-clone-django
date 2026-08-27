@@ -26,9 +26,7 @@
 #     def add(a,b,c):
 #         return a+b+c
 
-
 # c = Calculate()
-
 # print(c.add(2,3))
 
 # variable length positional Argument
