@@ -6,3 +6,6 @@ def home(request):
 
 def about(request):
     return HttpResponse("Hello I am about page")
+
+def shareId(request, id, name):
+    return HttpResponse(f"My id of myapp is {id}")
