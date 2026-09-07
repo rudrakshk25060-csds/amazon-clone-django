@@ -16,3 +16,12 @@ def year(request, year):
 
 def key_word_args(request ,**kwargs):
     return HttpResponse(f"<h1>your name is {kwargs["name"]} and your id is {kwargs["id"]}</h1>")
+
+# pip3 install virtualenv --for installation of virtual environment
+# for creating virtualenv - virtualenv your_folder_name
+# for actiavting vnv - source your_folder_name/bin/activate
+# python3 -m pip3 install django
+# django-admin startproject your_folder_name
+
+#python3 manage.py runserver
+
