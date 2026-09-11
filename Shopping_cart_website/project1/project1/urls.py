@@ -24,6 +24,4 @@ urlpatterns = [
     path("", views.products),
     # path("products/", product_views.product_show)
     path("products/" , include("product_app.urls"))
-    path("Rating", include())
-
 ]

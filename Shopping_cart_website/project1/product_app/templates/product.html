@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product_page</title>
-</head>
-<body>
-    <h1>I am rendering from product page</h1>
-</body>
-</html>
+{% extends "index.html" %}
+
+{% block title %} product page {% endblock title %}
+
+{% block content %}
+<h1>I am rendering product page</h1>
+<p>My name is {{name}} and age is {{age}}</p>
+<h1>My hobbie is {{hobbies.0}}</h1>
+<h2>my department is {{department.cs}}</h2>
+<h3>{{ECE | default:"no data found"}}</h3>
+{% endblock %}
