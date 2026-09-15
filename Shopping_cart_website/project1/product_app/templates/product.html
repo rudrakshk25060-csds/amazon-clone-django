@@ -33,7 +33,7 @@
 {% endif %}
 
 {% comment %} if, elif condition statement in django{% endcomment %}
-{% if age <= 19 %}
+{% comment %} {% if age <= 19 %}
 <p>I am in teenage</p>
 {% elif age > 19 and age < 30 %}
 <p>I am in young age...</p>
@@ -43,6 +43,8 @@
 
 {% for data in hobbies %}
 <p>{{data}}</p>
-{% endfor %}
+{% endfor %} {% endcomment %}
+
+
 
 {% endblock %}

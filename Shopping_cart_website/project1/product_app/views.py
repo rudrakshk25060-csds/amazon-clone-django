@@ -21,4 +21,4 @@ def showId(request):
     return render(request, "showid.html")
 
 def student_information(request):
-    return render(request, "std_info.html")
+    return render(request, "std_info.html", {"data":data})
