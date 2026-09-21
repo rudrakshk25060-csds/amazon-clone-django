@@ -1,12 +1,12 @@
 students_record = [
     {
         "id": 101,
-        "name": "Mohit Sharma",
+        "name": "mohit Sharma",
         "age": 21,
         "city": "Delhi",
         "course": "B.Tech CSE",
         "email": "mohit@gmail.com",
-        "marks": 87,
+        "marks": 20,
         "attendance": 92
     },
     {
@@ -26,7 +26,7 @@ students_record = [
         "city": "Jaipur",
         "course": "B.Tech DS",
         "email": "priya@gmail.com",
-        "marks": 84,
+        "marks": 30,
         "attendance": 89
     },
     {
@@ -61,12 +61,12 @@ students_record = [
     },
     {
         "id": 107,
-        "name": "Aman Kumar",
+        "name": "aman Kumar",
         "age": 21,
         "city": "Lucknow",
         "course": "B.Tech AI",
         "email": "aman@gmail.com",
-        "marks": 73,
+        "marks": 10,
         "attendance": 82
     },
     {
@@ -111,7 +111,7 @@ students_record = [
     },
     {
         "id": 112,
-        "name": "Simran Kaur",
+        "name": "simran Kaur",
         "age": 21,
         "city": "Amritsar",
         "course": "B.Tech DS",
