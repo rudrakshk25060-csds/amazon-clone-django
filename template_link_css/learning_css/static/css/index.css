@@ -6,9 +6,10 @@
 
 ul{
     background-color: blue;
-    color: white;
     padding: 20px;
     list-style-type: none;
     display: flex;
     justify-content: space-around;
+    color: white;
 }
+

@@ -9,6 +9,8 @@
 </head>
 <body>
     {% include "navbar.html" %}
-    <h1>I am rendering home page</h1>
+    {% block content %}
+    <h1>I am rendering home pages</h1>
+    {% endblock  %}
 </body>
 </html>
