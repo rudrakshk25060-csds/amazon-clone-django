@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Amazon Clone</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="cart-page">
+        <div class="container">
+            <h1 style="font-size:28px; color:#111; margin-bottom:20px; padding:10px 0;">
+                <i class="fa-solid fa-cart-shopping"></i> Shopping Cart
+            </h1>
+
+            {% if cart_products %}
+
+                <div class="cart-container">
+
+                    <!-- Left side: cart items list -->
+                    <div class="cart-items">
+                        <h2 style="font-size:18px; margin-bottom:5px; color:#333;">
+                            {{ cart_products|length }} item(s) in your cart
+                        </h2>
+                        <hr style="border-color:#ddd; margin-bottom:10px;">
+
+                        {% for item in cart_products %}
+                            <div class="cart-item">
+                                <!-- Product image -->
+                                <img src="{{ item.image }}" alt="{{ item.name }}"
+                                     onerror="this.src='https://via.placeholder.com/100?text={{ item.name }}'">
+
+                                <!-- Product details -->
+                                <div class="cart-item-info">
+                                    <h3>
+                                        <a href="/product/{{ item.id }}/" style="color:#007185; text-decoration:none;">
+                                            {{ item.name }}
+                                        </a>
+                                    </h3>
+
+                                    <!-- Category -->
+                                    <small style="color:#888;">{{ item.category }}</small>
+
+                                    <!-- Price per item -->
+                                    <div class="price">₹{{ item.price }} each</div>
+
+                                    <!-- Quantity controls -->
+                                    <div class="qty-controls">
+                                        <span style="font-size:13px; color:#555;">Qty:</span>
+                                        <a href="/cart/update/{{ item.id }}/?action=decrease" class="qty-btn">−</a>
+                                        <span class="qty-number">{{ item.quantity }}</span>
+                                        <a href="/cart/update/{{ item.id }}/?action=increase" class="qty-btn">+</a>
+                                    </div>
+
+                                    <!-- Subtotal for this item -->
+                                    <div style="margin-top:6px; font-size:14px; color:#555;">
+                                        Subtotal: <strong style="color:#B12704;">₹{{ item.subtotal }}</strong>
+                                    </div>
+
+                                    <!-- Remove button -->
+                                    <a href="/cart/remove/{{ item.id }}/" class="btn-remove">
+                                        <i class="fa-solid fa-trash"></i> Remove
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <!-- Right side: order summary -->
+                    <div class="cart-summary">
+                        <h2>Order Summary</h2>
+                        <hr style="border-color:#ddd; margin-bottom:10px;">
+
+                        <div style="font-size:15px; margin-bottom:8px;">
+                            Items ({{ cart_products|length }}):
+                            <strong style="float:right;">₹{{ total }}</strong>
+                        </div>
+                        <div style="font-size:15px; margin-bottom:8px; color:#555;">
+                            Delivery:
+                            <strong style="float:right; color:green;">FREE</strong>
+                        </div>
+                        <hr style="border-color:#ddd; margin:12px 0;">
+
+                        <div class="cart-total">
+                            Order Total: ₹{{ total }}
+                        </div>
+
+                        <!-- Checkout button -->
+                        <a href="/checkout/" class="btn-checkout">
+                            Proceed to Checkout
+                        </a>
+
+                        <!-- Clear cart button -->
+                        <a href="/cart/clear/" class="btn-clear-cart">
+                            Clear Cart
+                        </a>
+
+                        <!-- Continue shopping -->
+                        <div style="text-align:center; margin-top:12px;">
+                            <a href="/" style="color:#007185; font-size:13px;">
+                                ← Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            {% else %}
+                <!-- Empty cart message -->
+                <div class="empty-cart">
+                    <i class="fa-solid fa-cart-shopping" style="font-size:60px; color:#ccc; display:block; margin-bottom:20px;"></i>
+                    <h2>Your Amazon Clone cart is empty</h2>
+                    <p style="color:#555; margin:10px 0 20px;">Add items to your cart to see them here.</p>
+                    <a href="/" class="btn-primary" style="font-size:16px; padding:12px 30px;">
+                        Continue Shopping
+                    </a>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

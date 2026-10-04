@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Amazon Clone</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="search-results-page">
+        <div class="container">
+
+            <!-- Show what was searched -->
+            <div class="search-info">
+                {% if query %}
+                    Showing results for: <strong>"{{ query }}"</strong>
+                    &nbsp;&mdash;&nbsp; {{ products|length }} product(s) found
+                {% else %}
+                    Please enter a search term.
+                {% endif %}
+            </div>
+
+            {% if products %}
+                <div class="product-grid">
+                    {% for product in products %}
+                        <div class="product-card">
+                            <img src="{{ product.image }}" alt="{{ product.name }}"
+                                 onerror="this.src='https://via.placeholder.com/220x180?text={{ product.name }}'">
+
+                            {% if product.deal %}
+                                <span class="deal-badge">🔥 Deal</span>
+                            {% endif %}
+
+                            <h3>{{ product.name }}</h3>
+
+                            <div class="rating">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= product.rating %}
+                                        &#9733;
+                                    {% else %}
+                                        &#9734;
+                                    {% endif %}
+                                {% endfor %}
+                                <span>({{ product.reviews }})</span>
+                            </div>
+
+                            <div class="price-section">
+                                <span class="price">₹{{ product.price }}</span>
+                                <span class="original-price">₹{{ product.original_price }}</span>
+                            </div>
+
+                            <small style="color:#888; font-size:12px; display:block; margin-bottom:5px;">
+                                {{ product.category }}
+                            </small>
+
+                            <div class="product-buttons">
+                                <a href="/cart/add/{{ product.id }}/?next=/search/?q={{ query }}" class="btn-add-cart">
+                                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                </a>
+                                <a href="/product/{{ product.id }}/" class="btn-view">View Details</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            {% elif query %}
+                <!-- Nothing found -->
+                <div class="no-results">
+                    <i class="fa-solid fa-magnifying-glass" style="font-size:50px; color:#ccc; display:block; margin-bottom:15px;"></i>
+                    <p>No products found for <strong>"{{ query }}"</strong>.</p>
+                    <p style="font-size:14px; color:#888; margin-top:8px;">Try searching for: laptop, phone, headphones, book, shoes...</p>
+                    <a href="/" style="color:#007185; margin-top:10px; display:inline-block;">← Back to Home</a>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

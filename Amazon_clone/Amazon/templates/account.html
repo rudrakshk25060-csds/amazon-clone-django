@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account - Amazon Clone</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="simple-page">
+        <div class="simple-card">
+            <h1><i class="fa-solid fa-user-circle"></i> Hello, Student!</h1>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-box"></i>
+                    <h3><a href="/orders/">Your Orders</a></h3>
+                    <p>Track, return, or buy things again</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3>Your Wishlist</h3>
+                    <p>Products you have saved</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-gear"></i>
+                    <h3>Account Settings</h3>
+                    <p>Name, email, password</p>
+                </div>
+            </div>
+
+            <h2>Account Details</h2>
+            <ul>
+                <li>Name: <strong>Student User</strong></li>
+                <li>Email: <strong>student@college.edu</strong></li>
+                <li>Member since: <strong>2024</strong></li>
+            </ul>
+
+            <div class="notice-box" style="margin-top:20px;">
+                <i class="fa-solid fa-circle-info"></i>
+                <strong>Demo Account</strong> — This is an educational project.
+                No real login is required.
+            </div>
+
+            <br>
+            <a href="/" class="btn-primary">← Back to Home</a>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

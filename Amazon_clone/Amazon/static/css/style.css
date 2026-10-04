@@ -1,0 +1,544 @@
+/* ============================================================
+   style.css - Amazon Clone Homepage & Full-Width Footer Styles
+   ============================================================ */
+
+/* Global body styling */
+body {
+    background-color: #eaeded;
+    color: #0f1111;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ────────────────────────────────────────────────────────────
+   1. HERO / BANNER SECTION
+   ──────────────────────────────────────────────────────────── */
+.hero-banner-section {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    background-color: #131921;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Soft gradient fade from the banner into the page */
+.hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(19, 25, 33, 0.4) 0%, rgba(234, 237, 237, 0) 50%, #eaeded 100%);
+}
+
+.hero-content-box {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #ffffff;
+    padding: 30px 20px;
+    max-width: 900px;
+    margin-top: -40px;
+}
+
+.hero-main-title {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-sub-title {
+    font-size: 18px;
+    margin-bottom: 22px;
+    color: #f3f3f3;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-shop-btn {
+    display: inline-block;
+    background-color: #ffd814;
+    color: #0f1111;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+    transition: background-color 0.2s, transform 0.1s;
+    user-select: none;
+}
+
+.hero-shop-btn:hover {
+    background-color: #f7ca00;
+    transform: translateY(-1px);
+}
+
+/* ────────────────────────────────────────────────────────────
+   2. COMMON SECTION CONTAINERS & HEADINGS
+   ──────────────────────────────────────────────────────────── */
+.section-container {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 20px 24px 30px;
+    width: 100%;
+}
+
+.amazon-section-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f1111;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.deal-fire-icon {
+    color: #cc0c39;
+}
+
+.section-header-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.see-all-deals-text {
+    color: #007185;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.see-all-deals-text:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+/* ────────────────────────────────────────────────────────────
+   3. CATEGORY CARDS SECTION
+   ──────────────────────────────────────────────────────────── */
+.categories-card-section {
+    position: relative;
+    z-index: 20;
+    margin-top: -50px;
+}
+
+.category-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.category-box-card {
+    background-color: #ffffff;
+    padding: 18px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.category-box-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.category-box-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f1111;
+    margin-bottom: 12px;
+}
+
+.category-img-wrapper {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.category-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.category-box-card:hover .category-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.category-action-text {
+    color: #007185;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.category-box-card:hover .category-action-text {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+/* ────────────────────────────────────────────────────────────
+   4. PRODUCT CARDS & DEALS SECTION
+   ──────────────────────────────────────────────────────────── */
+.product-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.amazon-product-card {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.amazon-product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.product-deal-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #cc0c39;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 2px;
+    z-index: 2;
+}
+
+.product-card-img-wrapper {
+    width: 100%;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.product-card-img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.amazon-product-card:hover .product-card-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.product-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #0f1111;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 38px;
+}
+
+.product-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 6px;
+}
+
+.star-icons {
+    color: #ffa41c;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.review-count {
+    color: #007185;
+    font-size: 12px;
+}
+
+.product-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.current-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f1111;
+}
+
+.original-price {
+    font-size: 12px;
+    color: #565959;
+    text-decoration: line-through;
+}
+
+.product-card-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-amazon-add-cart {
+    background-color: #ffd814;
+    border: 1px solid #ffd814;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f1111;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.btn-amazon-add-cart:hover {
+    background-color: #f7ca00;
+    border-color: #f2c200;
+}
+
+.btn-amazon-view {
+    background-color: #ffa41c;
+    border: 1px solid #ffa41c;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f1111;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.btn-amazon-view:hover {
+    background-color: #fa8900;
+    border-color: #fa8900;
+}
+
+/* ────────────────────────────────────────────────────────────
+   5. COMPLETE FULL-WIDTH FOOTER
+   ──────────────────────────────────────────────────────────── */
+/* Back to top bar */
+.back-to-top-bar {
+    background-color: #37475a;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    user-select: none;
+}
+
+.back-to-top-bar:hover {
+    background-color: #485769;
+}
+
+/* Main footer body */
+.amazon-footer {
+    background-color: #232f3e;
+    color: #ffffff;
+    width: 100%;
+}
+
+.footer-columns-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 45px 24px 35px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-col-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+}
+
+.footer-col-list {
+    list-style: none;
+}
+
+.footer-col-list li {
+    margin-bottom: 10px;
+}
+
+.footer-col-list li span {
+    color: #dddddd;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.footer-col-list li span:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-mid-divider {
+    border: 0;
+    height: 1px;
+    background-color: #3a4553;
+}
+
+/* Footer Mid Section (Logo + Country/Language) */
+.footer-mid-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-logo .amazon-text-footer {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-btn {
+    border: 1px solid #848688;
+    border-radius: 3px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #cccccc;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.footer-btn:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Lower Bottom Section */
+.footer-bottom-section {
+    background-color: #131921;
+    padding: 24px 20px 30px;
+    text-align: center;
+}
+
+.footer-policy-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-policy-links span {
+    font-size: 12px;
+    color: #cccccc;
+    cursor: pointer;
+}
+
+.footer-policy-links span:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #999999;
+    line-height: 1.6;
+}
+
+.disclaimer-text {
+    font-size: 11px;
+    color: #777777;
+    margin-top: 4px;
+}
+
+/* ────────────────────────────────────────────────────────────
+   6. RESPONSIVE MEDIA QUERIES
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .footer-columns-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .hero-main-title {
+        font-size: 28px;
+    }
+    
+    .hero-sub-title {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-columns-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-location, .header-lang, .header-nav-item {
+        display: none;
+    }
+}

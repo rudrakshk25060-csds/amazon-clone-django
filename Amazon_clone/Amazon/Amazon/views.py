@@ -1,4 +1,181 @@
 from django.shortcuts import render
 
+# Simple list of sample products for display on the front page
+PRODUCTS = [
+    {
+        'id': 1,
+        'name': 'Wireless Bluetooth Noise Cancelling Headphones',
+        'price': '₹1,499',
+        'original_price': '₹2,999',
+        'category': 'Electronics',
+        'image': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '1,234',
+        'deal': True,
+    },
+    {
+        'id': 2,
+        'name': '5G Smartphone (128GB Storage, 8GB RAM)',
+        'price': '₹18,999',
+        'original_price': '₹24,999',
+        'category': 'Mobiles',
+        'image': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=350&h=350&fit=crop',
+        'rating': 5,
+        'reviews': '5,820',
+        'deal': True,
+    },
+    {
+        'id': 3,
+        'name': 'Slim Laptop 15.6" Full HD (Intel Core i5, 16GB)',
+        'price': '₹48,990',
+        'original_price': '₹62,000',
+        'category': 'Electronics',
+        'image': 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '890',
+        'deal': False,
+    },
+    {
+        'id': 4,
+        'name': 'Fitness Smartwatch with Heart Rate & Spo2',
+        'price': '₹2,199',
+        'original_price': '₹4,999',
+        'category': 'Electronics',
+        'image': 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '2,341',
+        'deal': True,
+    },
+    {
+        'id': 5,
+        'name': 'Men\'s Lightweight Running & Walking Shoes',
+        'price': '₹1,299',
+        'original_price': '₹2,499',
+        'category': 'Fashion',
+        'image': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '567',
+        'deal': False,
+    },
+    {
+        'id': 6,
+        'name': 'Water Resistant Travel & College Laptop Backpack',
+        'price': '₹899',
+        'original_price': '₹1,999',
+        'category': 'Fashion',
+        'image': 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '432',
+        'deal': True,
+    },
+    {
+        'id': 7,
+        'name': 'RGB Mechanical Gaming Keyboard with Blue Switches',
+        'price': '₹2,499',
+        'original_price': '₹3,999',
+        'category': 'Electronics',
+        'image': 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=350&h=350&fit=crop',
+        'rating': 5,
+        'reviews': '789',
+        'deal': False,
+    },
+    {
+        'id': 8,
+        'name': 'Portable Outdoor Wireless Bluetooth Speaker',
+        'price': '₹1,199',
+        'original_price': '₹2,499',
+        'category': 'Electronics',
+        'image': 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '1,023',
+        'deal': True,
+    },
+    {
+        'id': 9,
+        'name': 'Automatic Drip Coffee Maker (12 Cups)',
+        'price': '₹2,299',
+        'original_price': '₹3,499',
+        'category': 'Home & Kitchen',
+        'image': 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '345',
+        'deal': False,
+    },
+    {
+        'id': 10,
+        'name': 'Python Programming & Data Structures Handbook',
+        'price': '₹449',
+        'original_price': '₹799',
+        'category': 'Books',
+        'image': 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=350&h=350&fit=crop',
+        'rating': 5,
+        'reviews': '2,100',
+        'deal': True,
+    },
+    {
+        'id': 11,
+        'name': 'Daily Hydrating Face Cream with SPF 50',
+        'price': '₹499',
+        'original_price': '₹799',
+        'category': 'Beauty',
+        'image': 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '876',
+        'deal': False,
+    },
+    {
+        'id': 12,
+        'name': 'Professional Full-Size English Willow Cricket Bat',
+        'price': '₹1,699',
+        'original_price': '₹2,899',
+        'category': 'Sports',
+        'image': 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=350&h=350&fit=crop',
+        'rating': 4,
+        'reviews': '234',
+        'deal': False,
+    },
+]
+
+# Simple categories list for category cards
+CATEGORIES = [
+    {
+        'title': 'Electronics',
+        'image': 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300&h=200&fit=crop',
+    },
+    {
+        'title': 'Mobiles',
+        'image': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop',
+    },
+    {
+        'title': 'Fashion',
+        'image': 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=300&h=200&fit=crop',
+    },
+    {
+        'title': 'Home & Kitchen',
+        'image': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop',
+    },
+    {
+        'title': 'Books',
+        'image': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop',
+    },
+    {
+        'title': 'Beauty',
+        'image': 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=200&fit=crop',
+    },
+    {
+        'title': 'Grocery',
+        'image': 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=300&h=200&fit=crop',
+    },
+    {
+        'title': 'Sports & Fitness',
+        'image': 'https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?w=300&h=200&fit=crop',
+    },
+]
+
 def home(request):
-    return render(request, 'home.html')
+    """Simple view function to render the front page with products and categories."""
+    context = {
+        'products': PRODUCTS,
+        'categories': CATEGORIES,
+    }
+    return render(request, 'home.html', context)

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Location - Amazon Clone</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="simple-page">
+        <div class="simple-card">
+            <h1><i class="fa-solid fa-location-dot" style="color:#ff9900;"></i> Choose Your Delivery Location</h1>
+            <p>Select a city to set your delivery location:</p>
+
+            <!-- Form to select city -->
+            <form method="POST" action="/location/">
+                {% csrf_token %}
+
+                <!-- City buttons -->
+                <div class="city-grid">
+                    <button type="submit" name="city" value="Delhi" class="city-btn">📍 Delhi</button>
+                    <button type="submit" name="city" value="Mumbai" class="city-btn">📍 Mumbai</button>
+                    <button type="submit" name="city" value="Bangalore" class="city-btn">📍 Bangalore</button>
+                    <button type="submit" name="city" value="Chennai" class="city-btn">📍 Chennai</button>
+                    <button type="submit" name="city" value="Kolkata" class="city-btn">📍 Kolkata</button>
+                    <button type="submit" name="city" value="Hyderabad" class="city-btn">📍 Hyderabad</button>
+                    <button type="submit" name="city" value="Pune" class="city-btn">📍 Pune</button>
+                    <button type="submit" name="city" value="Ahmedabad" class="city-btn">📍 Ahmedabad</button>
+                </div>
+
+            </form>
+
+            <!-- Show currently selected location -->
+            {% if request.session.location %}
+                <p style="margin-top:20px; font-size:15px; color:#555;">
+                    <i class="fa-solid fa-circle-check" style="color:green;"></i>
+                    Current location: <strong>{{ request.session.location }}</strong>
+                </p>
+            {% endif %}
+
+            <br>
+            <a href="/" class="btn-primary">← Back to Home</a>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

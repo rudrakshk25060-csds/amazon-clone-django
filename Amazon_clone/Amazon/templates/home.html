@@ -4,10 +4,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+    <title>Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon </title>
+    
+    <!-- Link to Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+
+    <!-- ─── HEADER & NAVIGATION ─── -->
     {% include "navbar.html" %}
+
+    <main class="main-content-wrapper">
+        
+        <!-- ─── HERO / BANNER SECTION ─── -->
+        <section class="hero-banner-section">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&h=600&fit=crop" 
+                     alt="Amazon Mega Shopping Festival" 
+                     class="hero-bg-img">
+                <div class="hero-gradient-overlay"></div>
+            </div>
+
+            <div class="hero-content-box">
+                <h1 class="hero-main-title">Great Deals Great Shopping</h1>
+                <p class="hero-sub-title">Great deals on products you love &mdash; explore top electronics, fashion &amp; more</p>
+                <div class="hero-shop-btn">
+                    <span>Shop Now <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SHOPPING CATEGORIES SECTION ─── -->
+        <section class="section-container categories-card-section">
+            <h2 class="amazon-section-heading">Shop by Category</h2>
+            
+            <div class="category-cards-grid">
+                {% for category in categories %}
+                <div class="category-box-card">
+                    <h3 class="category-box-title">{{ category.title }}</h3>
+                    <div class="category-img-wrapper">
+                        <img src="{{ category.image }}" alt="{{ category.title }}">
+                    </div>
+                    <span class="category-action-text">See all &rarr;</span>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- ─── TODAY'S DEALS SECTION ─── -->
+        <section class="section-container deals-showcase-section">
+            <div class="section-header-row">
+                <h2 class="amazon-section-heading">
+                    <i class="fa-solid fa-fire deal-fire-icon"></i>
+                    Today's Deals
+                </h2>
+                <span class="see-all-deals-text">See all deals &rarr;</span>
+            </div>
+
+            <div class="product-cards-grid">
+                {% for product in products %}
+                    {% if product.deal %}
+                    <div class="amazon-product-card">
+                        <div class="product-deal-badge">🔥 Limited Time Deal</div>
+                        <div class="product-card-img-wrapper">
+                            <img src="{{ product.image }}" alt="{{ product.name }}">
+                        </div>
+                        <h4 class="product-card-title">{{ product.name }}</h4>
+                        
+                        <!-- Star Rating -->
+                        <div class="product-rating-row">
+                            <span class="star-icons">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= product.rating %}
+                                        ★
+                                    {% else %}
+                                        ☆
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                            <span class="review-count">({{ product.reviews }})</span>
+                        </div>
+
+                        <!-- Price Row -->
+                        <div class="product-price-row">
+                            <span class="current-price">{{ product.price }}</span>
+                            <span class="original-price">{{ product.original_price }}</span>
+                        </div>
+
+                        <!-- Visual Buttons -->
+                        <div class="product-card-buttons">
+                            <button type="button" class="btn-amazon-add-cart">
+                                <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                            </button>
+                            <button type="button" class="btn-amazon-view">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- ─── MORE PRODUCTS SECTION ─── -->
+        <section class="section-container all-products-showcase-section">
+            <h2 class="amazon-section-heading">Explore Popular Products</h2>
+            
+            <div class="product-cards-grid">
+                {% for product in products %}
+                    {% if not product.deal %}
+                    <div class="amazon-product-card">
+                        <div class="product-card-img-wrapper">
+                            <img src="{{ product.image }}" alt="{{ product.name }}">
+                        </div>
+                        <h4 class="product-card-title">{{ product.name }}</h4>
+                        
+                        <!-- Star Rating -->
+                        <div class="product-rating-row">
+                            <span class="star-icons">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= product.rating %}
+                                        ★
+                                    {% else %}
+                                        ☆
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                            <span class="review-count">({{ product.reviews }})</span>
+                        </div>
+
+                        <!-- Price Row -->
+                        <div class="product-price-row">
+                            <span class="current-price">{{ product.price }}</span>
+                            <span class="original-price">{{ product.original_price }}</span>
+                        </div>
+
+                        <!-- Visual Buttons -->
+                        <div class="product-card-buttons">
+                            <button type="button" class="btn-amazon-add-cart">
+                                <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                            </button>
+                            <button type="button" class="btn-amazon-view">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    {% include "footer.html" %}
+
+    <!-- Link to JavaScript (for the All Side Menu Drawer & Back to Top) -->
+    <script src="{% static 'js/script.js' %}"></script>
+
 </body>
 </html>

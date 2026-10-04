@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders - Amazon Clone</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="simple-page">
+        <div class="simple-card">
+            <h1><i class="fa-solid fa-box"></i> Your Orders</h1>
+
+            <!-- Demo order notice -->
+            <div class="notice-box">
+                <i class="fa-solid fa-circle-info"></i>
+                This is a demo orders page. No real orders have been placed.
+            </div>
+
+            <!-- Sample orders for demonstration -->
+            <h2>Recent Orders</h2>
+            <ul>
+                <li>
+                    <strong>Order #AMZ-2026-001</strong> — Wireless Headphones
+                    <br><small style="color:#888;">Placed on: 1 October 2026 &nbsp;|&nbsp; Status: <span style="color:green;">Delivered</span></small>
+                </li>
+                <li>
+                    <strong>Order #AMZ-2026-002</strong> — Python Programming Book
+                    <br><small style="color:#888;">Placed on: 2 October 2026 &nbsp;|&nbsp; Status: <span style="color:#ff9900;">In Transit</span></small>
+                </li>
+                <li>
+                    <strong>Order #AMZ-2026-003</strong> — Smart Watch Series 5
+                    <br><small style="color:#888;">Placed on: 3 October 2026 &nbsp;|&nbsp; Status: <span style="color:#007185;">Processing</span></small>
+                </li>
+            </ul>
+
+            <br>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <a href="/cart/" class="btn-secondary">Go to Cart</a>
+                <a href="/" class="btn-primary">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

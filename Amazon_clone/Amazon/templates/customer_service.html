@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service - Amazon Clone</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="simple-page">
+        <div class="simple-card">
+            <h1><i class="fa-solid fa-headset"></i> Customer Service</h1>
+            <p>Hello! How can we help you today?</p>
+
+            <!-- Help topic cards -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-box"></i>
+                    <h3>Your Orders</h3>
+                    <p>Track packages, return items, manage orders</p>
+                    <a href="/orders/" class="btn-primary" style="margin-top:10px; font-size:12px; padding:6px 14px;">Go to Orders</a>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <h3>Returns</h3>
+                    <p>Return or exchange items you ordered</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-truck"></i>
+                    <h3>Shipping</h3>
+                    <p>Shipping rates, times and policies</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <h3>Contact Us</h3>
+                    <p>Call, email or chat with us</p>
+                </div>
+            </div>
+
+            <h2>Help Center Topics</h2>
+            <ul>
+                <li><a href="#">How to track my order?</a></li>
+                <li><a href="#">How to return a product?</a></li>
+                <li><a href="#">Refund policy</a></li>
+                <li><a href="#">How to change my delivery address?</a></li>
+                <li><a href="#">Payment methods accepted</a></li>
+            </ul>
+
+            <div class="notice-box" style="margin-top:20px;">
+                <i class="fa-solid fa-circle-info"></i>
+                This is a demo Customer Service page for an educational project.
+                No real support is provided.
+            </div>
+
+            <br>
+            <a href="/" class="btn-primary">← Back to Home</a>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

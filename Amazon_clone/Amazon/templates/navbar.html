@@ -1,14 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+{% load static %}
+<!-- ============================================================
+     navbar.html - Amazon Clone Header & Sub-Navigation Bar
+     ============================================================ -->
 
-</head>
-<body>
-    <h1>Hello I am navbar</h1>
-    <i class="fa-solid fa-magnifying-glass"></i>
-</body>
-</html>
+<!-- Font Awesome for search, cart, user, location and arrow icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- ─── TOP MAIN HEADER ─── -->
+<header class="main-header">
+    
+    <!-- 1. Amazon Logo -->
+    <div class="header-logo">
+        <a href="/" class="logo-link">
+            <span class="amazon-text">amazon<span class="domain-in">.in</span></span>
+            <div class="logo-smile"></div>
+        </a>
+    </div>
+
+    <!-- 2. Deliver to / Location -->
+    <div class="header-location">
+        <div class="location-icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="location-text">
+            <span class="text-top">Deliver to</span>
+            <span class="text-bottom">India</span>
+        </div>
+    </div>
+
+    <!-- 3. Search Bar -->
+    <div class="header-search">
+        <div class="search-category-select">
+            <span>All</span>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <input type="text" class="search-input" placeholder="Search Amazon Clone..." readonly>
+        <button class="search-btn" type="button" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+
+    <!-- 4. Language Selector (🇮🇳 EN) -->
+    <div class="header-lang">
+        <span class="flag-icon">🇮🇳</span>
+        <span class="lang-text">EN</span>
+        <i class="fa-solid fa-caret-down caret-icon"></i>
+    </div>
+
+    <!-- 5. Hello, sign in & Account & Lists -->
+    <div class="header-nav-item">
+        <span class="text-top">Hello, sign in</span>
+        <span class="text-bottom">Account &amp; Lists <i class="fa-solid fa-caret-down caret-icon"></i></span>
+    </div>
+
+    <!-- 6. Returns & Orders -->
+    <div class="header-nav-item">
+        <span class="text-top">Returns</span>
+        <span class="text-bottom">&amp; Orders</span>
+    </div>
+
+    <!-- 7. Cart (count 0) -->
+    <div class="header-cart">
+        <div class="cart-icon-wrapper">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count"></span>
+        </div>
+        <span class="cart-label">Cart</span>
+    </div>
+
+</header>
+
+<!-- ─── SUB-NAVIGATION BAR ─── -->
+<nav class="sub-nav">
+    
+    <!-- ☰ All Button (Interactive: opens the side menu) -->
+    <button class="sub-nav-all-btn" id="open-sidebar-btn" type="button">
+        <i class="fa-solid fa-bars"></i>
+        <span>All</span>
+    </button>
+
+    <!-- Visual non-link navigation items -->
+    <span class="sub-nav-item">Fresh</span>
+    <span class="sub-nav-item">Amazon MiniTV</span>
+    <span class="sub-nav-item">Sell</span>
+    <span class="sub-nav-item">Best Sellers</span>
+    <span class="sub-nav-item">Today's Deals</span>
+    <span class="sub-nav-item">Mobiles</span>
+    <span class="sub-nav-item">Customer Service</span>
+    <span class="sub-nav-item">Electronics</span>
+    <span class="sub-nav-item">Books</span>
+
+</nav>
+
+<!-- ─── ALL SIDE DRAWER MENU & BACKDROP OVERLAY ─── -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="sidebar-menu" id="sidebar-menu">
+    
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+        <div class="sidebar-user">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>Hello, sign in</span>
+        </div>
+        <button class="sidebar-close-btn" id="close-sidebar-btn" type="button" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Sidebar Content Scrollable Area -->
+    <div class="sidebar-content">
+        
+        <!-- Trending -->
+        <div class="sidebar-section">
+            <h3 class="sidebar-section-title">Trending</h3>
+            <ul class="sidebar-list">
+                <li class="sidebar-item"><span>Bestsellers</span></li>
+                <li class="sidebar-item"><span>New Releases</span></li>
+                <li class="sidebar-item"><span>Movers and Shakers</span></li>
+            </ul>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <!-- Digital Content and Devices -->
+        <div class="sidebar-section">
+            <h3 class="sidebar-section-title">Digital Content and Devices</h3>
+            <ul class="sidebar-list">
+                <li class="sidebar-item"><span>Echo &amp; Alexa</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Fire TV</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Kindle E-Readers &amp; eBooks</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Audible Audiobooks</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Amazon Prime Video</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Amazon Music</span> <i class="fa-solid fa-chevron-right"></i></li>
+            </ul>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <!-- Shop by Category -->
+        <div class="sidebar-section">
+            <h3 class="sidebar-section-title">Shop by Category</h3>
+            <ul class="sidebar-list">
+                <li class="sidebar-item"><span>Mobiles, Computers</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>TV, Appliances, Electronics</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Men's Fashion</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Women's Fashion</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Home, Kitchen, Pets</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Beauty, Health</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Sports &amp; Fitness</span> <i class="fa-solid fa-chevron-right"></i></li>
+                <li class="sidebar-item"><span>Books</span> <i class="fa-solid fa-chevron-right"></i></li>
+            </ul>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <!-- Programs & Features -->
+        <div class="sidebar-section">
+            <h3 class="sidebar-section-title">Programs &amp; Features</h3>
+            <ul class="sidebar-list">
+                <li class="sidebar-item"><span>Gift Cards</span></li>
+                <li class="sidebar-item"><span>Amazon Pay</span></li>
+                <li class="sidebar-item"><span>Sell on Amazon</span></li>
+                <li class="sidebar-item"><span>Customer Service</span></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
